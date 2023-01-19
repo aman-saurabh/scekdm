@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.tp</groupId>
+    <artifactId>scekdm</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>scekdm</name>
+    <description>Demo project for spring Boot, spring cloud, elasticsearch, kafka, docker and event driven microservices.
+    </description>
+    <!-- We are using this POM file as base configuration only and not for creating runnable jars. So we have
+    defined "packaging" as "pom" here. -->
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>17</java.version>
+        <spring-boot.version>3.0.1</spring-boot.version>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+    </properties>
+    <!-- We have created "dependencyManagement" section and shifted the "dependencies" section inside this
+    "dependencyManagement" section because it will help us to define all dependencies in this base pom.xml file
+    without really downloading them. In the submodules that wants to include the dependency, we will simply
+    overwrite the dependencies section in the module itself. We have defined the dependency version in this file
+    so that submodules will just include the dependency without specifying the version.-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <version>${spring-boot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <!-- Similar to dependencyManagement section, we have created "pluginManagement" section also here and shifted the
+        "plugins" section containing 'spring-boot-maven-plugin' inside it. Any submodule that wants to include this plugin
+        will simply create a plugin section in the module itself, without setting the version but by setting any property
+        or goal for this task specifically-->
+        <pluginManagement>
+            <plugins>
+                <!--"spring-boot-maven-plugin" is used to create executable archive files such as jar files or war
+                files that contained all application dependencies and can be run with a single java jar command. This
+                behaviour comes just by including the plugin itself, because it is pre-configured to create the target
+                runnable jar. I addition this plugin also runs spring boot applications generate build information
+                and start your spring-boot applications prior to running integration test. And finally it also created
+                docker images with the 'build image goal' which comes with spring boot 2.3.0 release or higher. We will
+                actually be using this property to create docker images for our microservices.-->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <!-- We also need another plugin here which is called maven-compiler-plugin. Actually by default maven
+            uses java 1.6 version for source and target settings. But since we are using java 17, so we will use
+            maven-compiler-plugin to set the java version 17 for the source and target settings. Note that we have
+            not kept it inside the "pluginManagement" section as we need this plugin application-wise, so that we can
+            define it here to be used in submodules without needed to override-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <!--<source>1.8</source>-->
+                    <!--<target>1.8</target>-->
+                    <!-- From java version 9 and above "source" and "target" properties are replaced by "release" property -->
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
