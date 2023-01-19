@@ -1,0 +1,23 @@
+twitter-to-kafka-service:
+  twitter-keywords:
+    - Java
+    - Microservices
+    - Spring
+    - Kafka
+    - Elasticsearch
+  #We will use 'enable-v2-tweets' to load our V2 twitter implementation instead of the old Twitter4J implementation.
+  enable-v2-tweets: true
+  enable-mock-tweets: false
+  #This url will be used to stream data from twitter. Here we also added tweet.fields as created_at and expansions as
+  #author_id because we want to use the same fields that we were using with Twitter4J Library. So we will get
+  #createdAt and user id fields using this URL.This author Id will give us the user Id.
+  twitter-v2-base-url: https://api.twitter.com/2/tweets/search/stream?tweet.fields=created_at&expansions=author_id
+  #This url will be used to set the rules for our stream. So actually, We will set our filtered keywords using this
+  #rules end point and then start streaming data using the base url. We will use the same bearer token for both end
+  #points. So Twitter API will remember our rules when we call the base URL to stream the tweets.
+  twitter-v2-rules-base-url: https://api.twitter.com/2/tweets/search/stream/rules
+  twitter-v2-bearer-token: ${TWITTER_BEARER_TOKEN}
+  #Here note that we have not provided the token value directly. Instead, we give the reference to a environemnt variable.
+  #We can set the environment variable using the terminal(inside the project directory) as follows :
+  #export TWITTER_BEARER_TOKEN=<Your bearer token>
+

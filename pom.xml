@@ -14,6 +14,9 @@
     <name>scekdm</name>
     <description>Demo project for spring Boot, spring cloud, elasticsearch, kafka, docker and event driven microservices.
     </description>
+    <modules>
+        <module>twitter-to-kafka-service</module>
+    </modules>
     <!-- We are using this POM file as base configuration only and not for creating runnable jars. So we have
     defined "packaging" as "pom" here. -->
     <packaging>pom</packaging>
@@ -21,6 +24,10 @@
         <java.version>17</java.version>
         <spring-boot.version>3.0.1</spring-boot.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <twitter4j-stream.version>4.0.7</twitter4j-stream.version>
+        <lombok.version>1.18.24</lombok.version>
+        <httpclient.version>4.5.14</httpclient.version>
+        <json.version>20220924</json.version>
     </properties>
     <!-- We have created "dependencyManagement" section and shifted the "dependencies" section inside this
     "dependencyManagement" section because it will help us to define all dependencies in this base pom.xml file
@@ -34,13 +41,40 @@
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <scope>test</scope>
                 <version>${spring-boot.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.twitter4j/twitter4j-stream -->
+            <dependency>
+                <groupId>org.twitter4j</groupId>
+                <artifactId>twitter4j-stream</artifactId>
+                <version>${twitter4j-stream.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <!--Lombok is a compile-only tool which is not required at runtime. So that why we have used "provided"
+                scope here for this dependency.-->
+                <scope>provided</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.json/json -->
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${json.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>
