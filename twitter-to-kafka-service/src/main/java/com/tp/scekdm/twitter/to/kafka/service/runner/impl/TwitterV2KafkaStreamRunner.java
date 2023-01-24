@@ -19,7 +19,7 @@ import java.util.Map;
     Creating the implementation class for StreamRunner interface using the TwitterV2StreamHelper class.
  */
 @Component
-//It will only load this class if enable-v2-tweets set to true in the application configuration.
+//It will only load this class if enable-v2-tweets set to true and enable-mock-tweets set to false in the application configuration.
 //@ConditionalOnProperty(name="twitter-to-kafka-service.enable-v2-tweets", havingValue = "true", matchIfMissing = true)
 @ConditionalOnExpression("${twitter-to-kafka-service.enable-v2-tweets} && not ${twitter-to-kafka-service.enable-mock-tweets}")
 public class TwitterV2KafkaStreamRunner implements StreamRunner {

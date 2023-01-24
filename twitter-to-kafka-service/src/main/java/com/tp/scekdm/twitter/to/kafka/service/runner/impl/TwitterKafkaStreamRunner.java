@@ -17,9 +17,8 @@ import twitter4j.TwitterStreamFactory;
 import java.util.Arrays;
 
 @Component
-//It will only load this class if enable-v2-tweets set to true in the application configuration.
-//@ConditionalOnProperty(name="twitter-to-kafka-service.enable-v2-tweets", havingValue = "false")
-@ConditionalOnExpression("${twitter-to-kafka-service.enable-mock-tweets} && not ${twitter-to-kafka-service.enable-v2-tweets}")
+//It will only load this class if enable-v2-tweets and enable-mock-tweets set to false in the application configuration.
+@ConditionalOnExpression("not ${twitter-to-kafka-service.enable-mock-tweets} && not ${twitter-to-kafka-service.enable-v2-tweets}")
 
 public class TwitterKafkaStreamRunner implements StreamRunner {
     private final Logger LOG = LoggerFactory.getLogger(TwitterKafkaStatusListener.class);
