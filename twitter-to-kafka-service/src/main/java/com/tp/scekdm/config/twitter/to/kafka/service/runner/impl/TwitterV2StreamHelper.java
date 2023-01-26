@@ -1,4 +1,4 @@
-package com.tp.scekdm.twitter.to.kafka.service.runner.impl;
+package com.tp.scekdm.config.twitter.to.kafka.service.runner.impl;
 
 /*
     After Twitter introduced v2 API Twitter4 J library stopped working for new developer accounts. As you see with a
@@ -20,8 +20,8 @@ package com.tp.scekdm.twitter.to.kafka.service.runner.impl;
     So here we are creating a mirror of the twitter official example(defined in above URL), and we are not writing it
     from scratch. So we have just copied the content from above URL and updated it a little to fulfill our requirement.
  */
-import com.tp.scekdm.twitter.to.kafka.service.config.TwitterToKafkaServiceConfigData;
-import com.tp.scekdm.twitter.to.kafka.service.listener.TwitterKafkaStatusListener;
+import com.tp.scekdm.config.TwitterToKafkaServiceConfigData;
+import com.tp.scekdm.config.twitter.to.kafka.service.listener.TwitterKafkaStatusListener;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -39,7 +39,6 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import twitter4j.Status;
 import twitter4j.TwitterException;
@@ -56,7 +55,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Component
 @ConditionalOnExpression("${twitter-to-kafka-service.enable-v2-tweets} && not ${twitter-to-kafka-service.enable-mock-tweets}")

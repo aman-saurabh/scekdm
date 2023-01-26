@@ -1,4 +1,4 @@
-package com.tp.scekdm.twitter.to.kafka.service.config;
+package com.tp.scekdm.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

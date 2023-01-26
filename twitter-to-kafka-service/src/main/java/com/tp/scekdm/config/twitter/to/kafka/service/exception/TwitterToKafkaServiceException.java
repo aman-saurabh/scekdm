@@ -1,4 +1,4 @@
-package com.tp.scekdm.twitter.to.kafka.service.exception;
+package com.tp.scekdm.config.twitter.to.kafka.service.exception;
 
 
 

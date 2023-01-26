@@ -16,6 +16,7 @@
     </description>
     <modules>
         <module>twitter-to-kafka-service</module>
+        <module>app-config-data</module>
     </modules>
     <!-- We are using this POM file as base configuration only and not for creating runnable jars. So we have
     defined "packaging" as "pom" here. -->
@@ -36,6 +37,11 @@
     so that submodules will just include the dependency without specifying the version.-->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.tp</groupId>
+                <artifactId>app-config-data</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
@@ -87,7 +93,7 @@
                 <!--"spring-boot-maven-plugin" is used to create executable archive files such as jar files or war
                 files that contained all application dependencies and can be run with a single java jar command. This
                 behaviour comes just by including the plugin itself, because it is pre-configured to create the target
-                runnable jar. I addition this plugin also runs spring boot applications generate build information
+                runnable jar. In addition, this plugin also runs spring boot applications generate build information
                 and start your spring-boot applications prior to running integration test. And finally it also created
                 docker images with the 'build image goal' which comes with spring boot 2.3.0 release or higher. We will
                 actually be using this property to create docker images for our microservices.-->

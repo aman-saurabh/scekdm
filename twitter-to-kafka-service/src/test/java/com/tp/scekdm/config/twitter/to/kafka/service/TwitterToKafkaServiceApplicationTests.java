@@ -1,4 +1,4 @@
-package com.tp.scekdm.twitter.to.kafka.service;
+package com.tp.scekdm.config.twitter.to.kafka.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.tp.scekdm.twitter.to.kafka.service.listener;
+package com.tp.scekdm.config.twitter.to.kafka.service.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

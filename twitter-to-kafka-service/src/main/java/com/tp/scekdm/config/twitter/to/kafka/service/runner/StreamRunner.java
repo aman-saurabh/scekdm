@@ -1,4 +1,4 @@
-package com.tp.scekdm.twitter.to.kafka.service.runner;
+package com.tp.scekdm.config.twitter.to.kafka.service.runner;
 
 import twitter4j.TwitterException;
 

@@ -1,6 +1,6 @@
 2023-01-20 00:21:51 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 50778 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
 2023-01-20 00:21:51 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2023-01-20 00:21:52 [main] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'twitterToKafkaServiceApplication': Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'com.tp.scekdm.twitter.to.kafka.service.runner.StreamRunner' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2023-01-20 00:21:52 [main] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'twitterToKafkaServiceApplication': Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'runner.service.kafka.to.twitter.com.tp.scekdm.config.StreamRunner' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 2023-01-20 00:21:52 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
@@ -12,12 +12,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 1 of constructor in com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication required a bean of type 'com.tp.scekdm.twitter.to.kafka.service.runner.StreamRunner' that could not be found.
+Parameter 1 of constructor in service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication required a bean of type 'runner.service.kafka.to.twitter.com.tp.scekdm.config.StreamRunner' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'com.tp.scekdm.twitter.to.kafka.service.runner.StreamRunner' in your configuration.
+Consider defining a bean of type 'runner.service.kafka.to.twitter.com.tp.scekdm.config.StreamRunner' in your configuration.
 
 2023-01-20 00:29:16 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 51307 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
 2023-01-20 00:29:16 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - No active profile set, falling back to 1 default profile: "default"
@@ -51,15 +51,15 @@ java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
 Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 3 [character 4 line 1]
 	at org.json.JSONTokener.syntaxError(JSONTokener.java:501)
 	at org.json.JSONObject.<init>(JSONObject.java:208)
 	at org.json.JSONObject.<init>(JSONObject.java:404)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:256)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:256)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767)
 	... 5 common frames omitted
 2023-01-20 02:31:14 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 61092 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
@@ -79,15 +79,15 @@ java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
 Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 3 [character 4 line 1]
 	at org.json.JSONTokener.syntaxError(JSONTokener.java:501)
 	at org.json.JSONObject.<init>(JSONObject.java:208)
 	at org.json.JSONObject.<init>(JSONObject.java:404)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:257)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:257)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767)
 	... 5 common frames omitted
 2023-01-20 02:33:06 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 61273 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
@@ -107,11 +107,11 @@ java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
 Caused by: java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "line" is null
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:110)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:110)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767)
 	... 5 common frames omitted
 2023-01-20 02:34:04 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 61370 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
@@ -517,15 +517,15 @@ java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
 Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 3 [character 4 line 1]
 	at org.json.JSONTokener.syntaxError(JSONTokener.java:501)
 	at org.json.JSONObject.<init>(JSONObject.java:208)
 	at org.json.JSONObject.<init>(JSONObject.java:404)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:256)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:256)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767)
 	... 5 common frames omitted
 2023-01-20 02:40:42 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 63559 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
@@ -545,15 +545,15 @@ java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
 Caused by: org.json.JSONException: A JSONObject text must begin with '{' at 3 [character 4 line 1]
 	at org.json.JSONTokener.syntaxError(JSONTokener.java:501)
 	at org.json.JSONObject.<init>(JSONObject.java:208)
 	at org.json.JSONObject.<init>(JSONObject.java:404)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:256)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
-	at com.tp.scekdm.twitter.to.kafka.service.runner.impl.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.getFormattedTweet(TwitterV2StreamHelper.java:256)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2StreamHelper.connectStream(TwitterV2StreamHelper.java:111)
+	at impl.runner.service.kafka.to.twitter.com.tp.scekdm.config.TwitterV2KafkaStreamRunner.start(TwitterV2KafkaStreamRunner.java:43)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:33)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767)
 	... 5 common frames omitted
 2023-01-20 02:43:39 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 63879 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)

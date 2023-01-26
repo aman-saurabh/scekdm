@@ -38,11 +38,11 @@ java.lang.IllegalStateException: Failed to execute CommandLineRunner
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.main(TwitterToKafkaServiceApplication.java:25)
 Caused by: java.lang.UnsupportedOperationException: null
 	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
 	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
-	at com.tp.scekdm.twitter.to.kafka.service.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:37)
+	at service.kafka.to.twitter.com.tp.scekdm.config.TwitterToKafkaServiceApplication.run(TwitterToKafkaServiceApplication.java:37)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767)
 	... 5 common frames omitted
 2023-01-19 20:24:37 [main] INFO  c.t.s.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 34681 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
