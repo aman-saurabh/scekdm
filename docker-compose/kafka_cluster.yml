@@ -1,0 +1,127 @@
+version: '3.7'
+services:
+  # Zookeeper is required to hold metadata for a cluster and play a role on determining leader election and cluster
+  # health. But I want to remind you that in the coming releases of Kafka, Zookeeper is planned to be removed. And then
+  # the leader election will be done inside Kafka cluster itself, where the leader itself will be responsible for the
+  # cluster health.
+  zookeeper:
+    image: confluentinc/cp-zookeeper:${KAFKA_VERSION:-latest}
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_INIT_LIMIT: 5
+      ZOOKEEPER_SYNC_LIMIT: 2
+      ZOOKEEPER_SERVERS: zookeeper:2888:3888
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
+  # Schema Registry is used to register a schema for a kafka topic, and it will check the producers and consumers each
+  # time, to force them to use a registered schema so that only the allowed schema will be used. Producers and consumers
+  # check schema with ID and cache the result before sending and receiving data. So it is actually a one time request
+  # to the schema registry and then subsequent checks done by using cache. Schema Registry also allows backward and
+  # forward compatibility. So schema can evolve without breaking changes.
+  schema-registry:
+    image: confluentinc/cp-schema-registry:${KAFKA_VERSION}
+    hostname: schema-registry
+    depends_on:
+      - zookeeper
+      - kafka-broker-1
+      - kafka-broker-2
+      - kafka-broker-3
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: 'zookeeper:2181'
+      SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
+      SCHEMA_REGISTRY_DEBUG: 'true'
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
+  # Finally, we have three Kafka containers defined here in the Kafka cluster Yaml file. Each uses the same confluent
+  # Kafka image while the ports are different. First of all, why do we have three containers, which is actually three
+  # Kafka brokers. It is to accomplish the concept of Quorum(pronounced as "korum"), which indicates the minimum number
+  # of members necessary to conduct a business in a group. And in Kafka terms, this will prevent split brain issue.
+
+  # Split brain - In a failover cluster split brain scenario, neither node can communicate with the other, and the
+  # standby server may promote itself to become an active server because it believes the active node has failed. This
+  # results in both nodes becoming ‘active’ as each would see the other as being failed. As a result, data integrity
+  # and consistency is compromised as data on both nodes would be changing. This is referred to as split brain.
+
+  # In kafka it simply prevents creating more than one network in a group of Kafka brokers such that with three brokers
+  # and network must have two nodes at least. This way we can be sure that only one network can be created because there
+  # can only be one group with two nodes. Note that the other group will have only one node, which is not enough to
+  # create a network.
+  kafka-broker-1:
+    image: confluentinc/cp-kafka:${KAFKA_VERSION}
+    hostname: kafka-broker-1
+    ports:
+      - "19092:19092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      # Note that we have two listeners here, one for internal communication and one for accessing the cluster from
+      # outside of containers which will use the exposed ports. For example, this exposed part is 19092 for the
+      # Kafka-broker-1. That means we can reach this container from outside using localhost or the name of the machine
+      # that docker runs and on port 19092. While inside the docker we will reach to this container using the hostname
+      # defined in the compose file, which is Kafka broker 1. And for port we use 1992 for internal communication.
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-1:9092,LISTENER_LOCAL://localhost:19092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,LISTENER_LOCAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      # We defined the compression type as 'producer' here, which is the concept of compressing the data end to end,
+      # as we talked on the Kafka and the producer section.
+      KAFKA_COMPRESSION_TYPE: producer
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
+  kafka-broker-2:
+    image: confluentinc/cp-kafka:${KAFKA_VERSION}
+    hostname: kafka-broker-2
+    ports:
+      - "29092:29092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-2:9092,LISTENER_LOCAL://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,LISTENER_LOCAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_COMPRESSION_TYPE: producer
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
+  kafka-broker-3:
+    image: confluentinc/cp-kafka:${KAFKA_VERSION}
+    hostname: kafka-broker-3
+    ports:
+      - "39092:39092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker-3:9092,LISTENER_LOCAL://localhost:39092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,LISTENER_LOCAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_COMPRESSION_TYPE: producer
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
+
+#We can run this kafka cluster using following command from the same directory where "common.yml" file and "kafka_cluster.yml" files are lying :
+# docker-compose -f common.yml -f kafka_cluster.yml up
+#You can add "-d" option in it to leave containers in running state.
+
+
+#And we can check if all containers are running using following commands.
+# docker container ls
+#or,
+# docker ps
+#(Add "-a" option in above command to check all containers. By default it will show only running container and not the stopped containers.)
+
+
+#And we can stop all containers using following command :
+# docker-compose -f common.yml -f kafka_cluster.yml down
+#To delete the network, containers, and volumes when you stop the cluster, specify the -v option

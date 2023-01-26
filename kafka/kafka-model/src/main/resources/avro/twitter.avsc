@@ -1,0 +1,24 @@
+//We will create a java model for kafka communication and then use it with Avro schema type. Avro is an open data
+//serialization system that helps with data exchange between different systems. It has a schema, and use efficient by
+//serialization. And with Avro no need to keep names as in Json and it also has a direct mapping to and from Json.
+//Thanks to these properties, it is more compact and faster for data communication. That's why it's the preferred way
+//in kafka world.
+
+
+//As you can see, here we define a namespace, which corresponds to a java package, and define the name as the java
+//class name.
+{"namespace": "com.tp.scekdm.kafka.avro.model",
+  "type": "record",
+  "name": "TwitterAvroModel",
+  "fields": [
+    {"name": "userId", "type": "long"},
+    {"name": "id", "type": "long"},
+    {"name": "text", "type": ["null", "string"]},
+    {"name": "createdAt", "type": ["null", "long"], "logicalType": ["null", "date"]}
+  ]
+}
+
+//Let's now run "mvn clean install" command(from the main project directory) and then avro-maven-plugin will create the
+//Java model from the schema file for us. If you check com.tp.scekdm.kafka.avro package after running the "mvn clean
+//install" command, you will see that there is a class called TwitterAvroModel, and also we see the four fields that we
+//defined in this avro schema file.
