@@ -16,12 +16,14 @@ twitter-to-kafka-service:
   #rules end point and then start streaming data using the base url. We will use the same bearer token for both end
   #points. So Twitter API will remember our rules when we call the base URL to stream the tweets.
   twitter-v2-rules-base-url: https://api.twitter.com/2/tweets/search/stream/rules
-  twitter-v2-bearer-token: ${TWITTER_BEARER_TOKEN}
+  #twitter-v2-bearer-token: ${TWITTER_BEARER_TOKEN}
   #Here note that we have not provided the token value directly. Instead, we give the reference to an environment variable.
   #We can set the environment variable using the terminal(inside the project directory) as follows :
   #export TWITTER_BEARER_TOKEN=<Your bearer token>
   #Don't know why but using environment variable here is not working so use value directly i.e. as follows :
+
   #twitter-v2-bearer-token: <Actual_twitter_bearer_token>
+  #twitter-v2-bearer-token: 
   # However if you have set enable-v2-tweets as false and enable-mock-tweets as true, then the mock tweet implementation
   # will work and v2 implementation won't work. So in that case you don't need to set "twitter-v2-bearer-token" but if
   # you are using v2 implementation then you will need to set "twitter-v2-bearer-token" value.
@@ -43,3 +45,20 @@ kafka-config:
     - twitter-topic
   num-of-partitions: 3
   replication-factor: 3
+kafka-producer-config:
+  key-serializer-class: org.apache.kafka.common.serialization.LongSerializer
+  value-serializer-class: io.confluent.kafka.serializers.KafkaAvroSerializer
+  compression-type: snappy
+  # For acknowledge, we choose all because we want to get acknowledgements from all replicas to be more resilient, we
+  # could set it to 1 or 0 also. If we set it to 1, it will only wait for the broker that gets requests from producer
+  # client. And if it is set to zero, it will not wait and return immediately without acknowledgement.
+  acks: all
+  # Default batch size is set as 16 kilobytes, which is the actual default value, and we also define a boost factor
+  # here for batch size which we can use to try different values and see if it performs better or not. I will leave it
+  # as 100 times of the default value to enable more batching and to get high throughput.
+  batch-size: 16384
+  batch-size-boost-factor: 100
+  linger-ms: 5
+  # Here by request-timeout-ms we say that after 60 seconds, if no acknowledgement comes, producer will throw timeout error
+  request-timeout-ms: 60000
+  retry-count: 5

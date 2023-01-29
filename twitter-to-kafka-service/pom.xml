@@ -23,30 +23,37 @@
             <artifactId>app-config-data</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.tp</groupId>
+            <artifactId>kafka-admin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tp</groupId>
+            <artifactId>kafka-producer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.twitter4j</groupId>
             <artifactId>twitter4j-stream</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -54,7 +61,57 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
+                <!-- Adding the build-image goal to the Spring boot Maven plugin. This way we will be able to create
+                docker image for our microservices when we run the 'maven install' command. -->
+                <configuration>
+                    <!-- In the configuration part we are giving a name to our service docker image. Here we are using
+                    project's groupId/twitter-to-kafka-service as image name and project version as the image version
+                    (or tag of the image)-->
+                    <image>
+                        <name>${project.groupId}/twitter-to-kafka-service:${project.version}</name>
+                    </image>
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- Here we are setting "phase" as "install" as we want to create the docker image when we run
+                        "maven install" command. -->
+                        <phase>install</phase>
+                        <!-- Here we are setting the goal as "build-image". So when run the 'maven install' command,
+                        maven will build the docker image also for us for this microservice.-->
+                        <goals>
+                            <goal>build-image</goal>
+                            <!--
+                            Here we use Spring boot build-image property to create the docker image. Spring boot
+                            build-image follows layered approach to prevent 2 overheads First, it prevents creating a
+                            single fat jar And second, if there is an update there will be no need to update the whole
+                            Jar. Thanks to the ability of using caching.
+
+                            Here the point is that docker image is created with a layered approach and layering is
+                            designed to separate the code based on how likely it is to change between application
+                            builds. Library code is less likely to change between builds so it is placed in its own
+                            layers to allow tooling to reuse the layers from cache. Application code, on the other hand,
+                            is more likely to change between builds, so it is isolated in a separate layer. So by
+                            reusing the layers during image creation and caching the results, we got faster result
+                            during our builds.
+
+                            Having created the Docker image using maven, let's now create a services.yml file in docker
+                            compose folders. Which will include the docker image for our twitter-to-kafka-service.
+                            -->
+                        </goals>
+                    </execution>
+                </executions>
+                <!--
+                Now, if we run 'maven install' command from the main project folder - It will first compile and build
+                the project and after that we will see that it will also create the docker image for us for this
+                microservice. Note that it might take a while at first run because of downloading the buildpack
+                dependencies.
+
+                One more thing to note here is that, when we run maven install command It will also run the context
+                load tests and currently when the context loads It will try to reach to Kafka in the test and since we
+                don't have any Kafka mock running on tests, we should first run a Kafka cluster locally before running
+                maven install command Or we can simply use maven install with skipped test option to skip the context
+                load test so that we can install dependencies and create the image.
+                -->
             </plugin>
         </plugins>
     </build>

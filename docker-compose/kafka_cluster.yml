@@ -130,3 +130,9 @@ services:
 # kafkacat -L -b localhost:19092
 #It will return all brokers(with their hostname or IP address and port number) and topics details
 
+#Command to consume a kafka topic
+# kafkacat -C -b localhost:19092 -t twitter-topic
+
+
+# mvn install -DskipTests
+

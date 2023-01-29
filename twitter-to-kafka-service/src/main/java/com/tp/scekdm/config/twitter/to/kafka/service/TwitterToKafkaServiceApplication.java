@@ -1,6 +1,6 @@
 package com.tp.scekdm.config.twitter.to.kafka.service;
 
-import com.tp.scekdm.config.TwitterToKafkaServiceConfigData;
+import com.tp.scekdm.config.twitter.to.kafka.service.init.StreamInitializer;
 import com.tp.scekdm.config.twitter.to.kafka.service.runner.StreamRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,12 +15,12 @@ import java.util.Arrays;
 @ComponentScan(basePackages = "com.tp.scekdm")
 public class TwitterToKafkaServiceApplication implements CommandLineRunner {
     private static final Logger LOG = LoggerFactory.getLogger(TwitterToKafkaServiceApplication.class);
-    private final TwitterToKafkaServiceConfigData twitterToKafkaServiceConfigData;
     private final StreamRunner streamRunner;
+    private final StreamInitializer streamInitializer;
 
-    public TwitterToKafkaServiceApplication(TwitterToKafkaServiceConfigData configData, StreamRunner streamRunner) {
-        this.twitterToKafkaServiceConfigData = configData;
+    public TwitterToKafkaServiceApplication(StreamRunner streamRunner, StreamInitializer streamInitializer) {
         this.streamRunner = streamRunner;
+        this.streamInitializer = streamInitializer;
     }
 
     public static void main(String[] args) {
@@ -31,8 +31,7 @@ public class TwitterToKafkaServiceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         LOG.info("App starts...");
-        //LOG.info(twitterToKafkaServiceConfigData.getTwitterV2BearerToken());
-        LOG.info(Arrays.toString(twitterToKafkaServiceConfigData.getTwitterKeywords().toArray()));
+        streamInitializer.init();
         streamRunner.start();
     }
 }

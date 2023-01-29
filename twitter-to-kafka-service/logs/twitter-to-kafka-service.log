@@ -1,12 +1,649 @@
-2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 7627 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
-2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - No active profile set, falling back to 1 default profile: "default"
-2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Started TwitterToKafkaServiceApplication in 0.792 seconds (process running for 1.279)
-2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - App starts...
-2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - [Java, Microservices, Spring, Kafka, Elasticsearch]
-2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.r.i.MockKafkaStreamRunner - Starting mock filtering twitter streams for keywords [Java, Microservices, Spring, Kafka, Elasticsearch]
-2023-01-26 20:02:03 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text sed egestas adipiscing dollar convallis vel egestas Elasticsearch juilik elit sed vitae sed
-2023-01-26 20:02:13 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text enim ipsum vitae juilik vitae elit adipiscing Microservices feugiat juilik ipsum vitae Lorem setual
-2023-01-26 20:02:23 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text sed setual sed sem Spring dollar Lorem
-2023-01-26 20:02:33 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text enim neque vitae Elasticsearch feugiat Vestibulum
-2023-01-26 20:02:43 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text consectetur sed Lorem condimentum consectetur vel feugiat sed Java enim consectetur enim vitae condimentum elit
-2023-01-26 20:02:53 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Vestibulum egestas ipsum Vivamus adipiscing libero Elasticsearch setual Vestibulum vel feugiat sem
+2023-01-30 00:03:44 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 56633 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
+2023-01-30 00:03:44 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-01-30 00:03:44 [main] WARN  o.s.c.a.AnnotationTypeMapping - Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.1. Please annotate the following attributes in @org.springframework.retry.annotation.EnableRetry with appropriate @AliasFor declarations: [proxyTargetClass]
+2023-01-30 00:03:45 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	bootstrap.servers = [localhost:19092, localhost:29092, localhost:39092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2023-01-30 00:03:45 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.3.1
+2023-01-30 00:03:45 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: e23c59d00e687ff5
+2023-01-30 00:03:45 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1675017225589
+2023-01-30 00:03:46 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080
+2023-01-30 00:03:46 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Started TwitterToKafkaServiceApplication in 1.993 seconds (process running for 2.557)
+2023-01-30 00:03:46 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - App starts...
+2023-01-30 00:03:46 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Creating 1 topic(s), attempt 0
+2023-01-30 00:03:46 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Creating kafka topic [twitter-topic], attempt 0
+2023-01-30 00:03:46 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Topic with name twitter-topic is read
+2023-01-30 00:03:46 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Topic with name _schemas is read
+2023-01-30 00:03:46 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Topic with name __confluent.support.metrics is read
+2023-01-30 00:03:46 [main] INFO  c.t.s.c.t.t.k.s.i.i.KafkaStreamInitializer - Topics with name twitter-topic is ready for operations!
+2023-01-30 00:03:46 [main] INFO  c.t.s.c.t.t.k.s.r.i.TwitterV2KafkaStreamRunner - Created filter for twitter stream for keywords : [Java, Microservices, Spring, Kafka, Elasticsearch]
+2023-01-30 00:03:48 [main] INFO  c.t.s.c.t.t.k.s.r.i.TwitterV2StreamHelper - Created rules for twitter stream Java
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @Mr_Boggins I also like Kafka and his ties to Andy Reid. Knows how it’s done…, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1360234519, "id": 1619765763191234560, "text": "@Mr_Boggins I also like Kafka and his ties to Andy Reid. Knows how it\u2019s done\u2026", "createdAt": 1675017226000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	batch.size = 1638400
+	bootstrap.servers = [localhost:19092, localhost:29092, localhost:39092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = snappy
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.LongSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 60000
+	retries = 5
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class io.confluent.kafka.serializers.KafkaAvroSerializer
+
+2023-01-30 00:03:59 [main] INFO  i.c.k.s.KafkaAvroSerializerConfig - KafkaAvroSerializerConfig values: 
+	auto.register.schemas = true
+	avro.reflection.allow.null = false
+	avro.remove.java.properties = false
+	avro.use.logical.type.converters = false
+	basic.auth.credentials.source = URL
+	basic.auth.user.info = [hidden]
+	bearer.auth.cache.expiry.buffer.seconds = 300
+	bearer.auth.client.id = null
+	bearer.auth.client.secret = null
+	bearer.auth.credentials.source = STATIC_TOKEN
+	bearer.auth.identity.pool.id = null
+	bearer.auth.issuer.endpoint.url = null
+	bearer.auth.logical.cluster = null
+	bearer.auth.scope = null
+	bearer.auth.scope.claim.name = scope
+	bearer.auth.sub.claim.name = sub
+	bearer.auth.token = [hidden]
+	context.name.strategy = class io.confluent.kafka.serializers.context.NullContextNameStrategy
+	id.compatibility.strict = true
+	key.subject.name.strategy = class io.confluent.kafka.serializers.subject.TopicNameStrategy
+	latest.compatibility.strict = true
+	max.schemas.per.subject = 1000
+	normalize.schemas = false
+	proxy.host = 
+	proxy.port = -1
+	schema.format = null
+	schema.reflection = false
+	schema.registry.basic.auth.user.info = [hidden]
+	schema.registry.ssl.cipher.suites = null
+	schema.registry.ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	schema.registry.ssl.endpoint.identification.algorithm = https
+	schema.registry.ssl.engine.factory.class = null
+	schema.registry.ssl.key.password = null
+	schema.registry.ssl.keymanager.algorithm = SunX509
+	schema.registry.ssl.keystore.certificate.chain = null
+	schema.registry.ssl.keystore.key = null
+	schema.registry.ssl.keystore.location = null
+	schema.registry.ssl.keystore.password = null
+	schema.registry.ssl.keystore.type = JKS
+	schema.registry.ssl.protocol = TLSv1.3
+	schema.registry.ssl.provider = null
+	schema.registry.ssl.secure.random.implementation = null
+	schema.registry.ssl.trustmanager.algorithm = PKIX
+	schema.registry.ssl.truststore.certificates = null
+	schema.registry.ssl.truststore.location = null
+	schema.registry.ssl.truststore.password = null
+	schema.registry.ssl.truststore.type = JKS
+	schema.registry.url = [http://localhost:8081]
+	use.latest.version = false
+	use.schema.id = -1
+	value.subject.name.strategy = class io.confluent.kafka.serializers.subject.TopicNameStrategy
+
+2023-01-30 00:03:59 [main] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2023-01-30 00:03:59 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.3.1
+2023-01-30 00:03:59 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: e23c59d00e687ff5
+2023-01-30 00:03:59 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1675017239455
+2023-01-30 00:03:59 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: sXmXhsKSR2WpKUB2E0huqg
+2023-01-30 00:03:59 [kafka-producer-network-thread | producer-1] INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1001 with epoch 0
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @vergilswarrior: https://t.co/un2hjIM0CI, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 920517419172552704, "id": 1619765763107348480, "text": "RT @vergilswarrior: https://t.co/un2hjIM0CI", "createdAt": 1675017226000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @sunfflouwerry spring, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1290572958176616448, "id": 1619765765087039488, "text": "@sunfflouwerry spring", "createdAt": 1675017226000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @SumSumSeVeN: Excuse me I came here to see what's happening on twitter and y'all screaming on tl that dynamite,spring day,DNA,butter pav…, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1262878732441849856, "id": 1619765767414890496, "text": "RT @SumSumSeVeN: Excuse me I came here to see what's happening on twitter and y'all screaming on tl that dynamite,spring day,DNA,butter pav\u2026", "createdAt": 1675017227000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Spring semester just began! Need help with your course work? 
+✓Essay due 
+✓Paper Pay
+✓finance 
+✓Economics
+✓Accounting 
+✓Homework.... 
+✓Calculus
+✓Essay
+✓Geometry
+✓Online class..
+Dm us @supertutors50, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1352551307215855616, "id": 1619765766198538240, "text": "Spring semester just began! Need help with your course work? \n✓Essay due \n✓Paper Pay\n✓finance \n✓Economics\n✓Accounting \n✓Homework.... \n✓Calculus\n✓Essay\n✓Geometry\n✓Online class..\nDm us @supertutors50", "createdAt": 1675017227000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @HellingtonBoots 🤩, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 426940970, "id": 1619765769025490944, "text": "@HellingtonBoots 🤩", "createdAt": 1675017227000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @leaksnation_: speak now (taylor's version) will be released very soon, this spring 
+
+1989 (taylor's version) will be released this summ…, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1207369375562584066, "id": 1619765769734348800, "text": "RT @leaksnation_: speak now (taylor's version) will be released very soon, this spring \n\n1989 (taylor's version) will be released this summ\u2026", "createdAt": 1675017227000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @Java_jigga I was an “essential worker” and I’m not much of a nightlife/going out guy, so my life literally did not change at all during covid. I never knew what people were complaining about, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 706048928706224128, "id": 1619765770963275777, "text": "@Java_jigga I was an \u201Cessential worker\u201D and I\u2019m not much of a nightlife/going out guy, so my life literally did not change at all during covid. I never knew what people were complaining about", "createdAt": 1675017228000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @JasonMaginnis @mariannaspring @elonmusk Marianna Spring - BBC's lead on 'disinformation'.  They called that right, didn't they!, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 35287968, "id": 1619765778622058496, "text": "@JasonMaginnis @mariannaspring @elonmusk Marianna Spring - BBC's lead on 'disinformation'.  They called that right, didn't they!", "createdAt": 1675017230000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @DschlopesIsBack: 🧵Here is a research paper from Spring of 2022 on Directed Evolution.  You might notice that Ralph Baric is one of the…, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 14597559, "id": 1619765779851010051, "text": "RT @DschlopesIsBack: 🧵Here is a research paper from Spring of 2022 on Directed Evolution.  You might notice that Ralph Baric is one of the\u2026", "createdAt": 1675017230000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @xrockwjk and when bad decisions debuted in top10 hot100, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1565303582693392388, "id": 1619765779016327168, "text": "@xrockwjk and when bad decisions debuted in top10 hot100", "createdAt": 1675017230000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @fuckedupfoods https://t.co/QUGXPSTg8e, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 20111713, "id": 1619765785219723264, "text": "@fuckedupfoods https://t.co/QUGXPSTg8e", "createdAt": 1675017231000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @catsuka: It was a pleasure to draw attention to some chinese animations (donghuas) during this holiday week of chinese new year (aka Sp…, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1019721744, "id": 1619765790311587840, "text": "RT @catsuka: It was a pleasure to draw attention to some chinese animations (donghuas) during this holiday week of chinese new year (aka Sp\u2026", "createdAt": 1675017232000} to topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @ROLLINRAIDER Ready for spring 💯 2° here also but that Iowa 2° is different lol, sending to kafka topic twitter-topic
+2023-01-30 00:03:59 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1594454968517660673, "id": 1619765788193492993, "text": "@ROLLINRAIDER Ready for spring 💯 2° here also but that Iowa 2° is different lol", "createdAt": 1675017232000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @KAFKA_Dev: Ongevaccineerd, uitgesloten, uitgezet, uitgelachen, gediscrimineerd, ondanks dat nog steeds ONGEVACCINEERD en dan winnen!…, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1438987903791677444, "id": 1619765792777834497, "text": "RT @KAFKA_Dev: Ongevaccineerd, uitgesloten, uitgezet, uitgelachen, gediscrimineerd, ondanks dat nog steeds ONGEVACCINEERD en dan winnen!\u2026", "createdAt": 1675017233000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @KAFKA_Dev: Ongevaccineerd, uitgesloten, uitgezet, uitgelachen, gediscrimineerd, ondanks dat nog steeds ONGEVACCINEERD en dan winnen!…, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1458814495908900869, "id": 1619765792513617920, "text": "RT @KAFKA_Dev: Ongevaccineerd, uitgesloten, uitgezet, uitgelachen, gediscrimineerd, ondanks dat nog steeds ONGEVACCINEERD en dan winnen!\u2026", "createdAt": 1675017233000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Starring Kendall Jenner | Jimmy Choo
+Spring Collection 2023
+Shop Now Click https://t.co/ER5PmoivMc
+https://t.co/eXi9sJZHoA https://t.co/i3lRRSxDiH, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1127177770365222913, "id": 1619765790731026432, "text": "Starring Kendall Jenner | Jimmy Choo\nSpring Collection 2023\nShop Now Click https://t.co/ER5PmoivMc\nhttps://t.co/eXi9sJZHoA https://t.co/i3lRRSxDiH", "createdAt": 1675017232000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @mlma9 That’s a good place to start your countdown 🏈, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1053063122351808512, "id": 1619765801313247233, "text": "@mlma9 That\u2019s a good place to start your countdown 🏈", "createdAt": 1675017235000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @sabrinaesaquino: Stop comparing programming languages
+
+Python is VERSATILE
+
+JavaScript is POWERFUL
+
+Ruby is ELEGANT
+
+C is ESSENTIAL
+
+C+…, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 50736323, "id": 1619765800843501568, "text": "RT @sabrinaesaquino: Stop comparing programming languages\n\nPython is VERSATILE\n\nJavaScript is POWERFUL\n\nRuby is ELEGANT\n\nC is ESSENTIAL\n\nC+\u2026", "createdAt": 1675017235000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text gonna be in delulu era https://t.co/J0CUvQkNNU, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1258958591270289411, "id": 1619765805054570497, "text": "gonna be in delulu era https://t.co/J0CUvQkNNU", "createdAt": 1675017236000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text 强奸迷奸乱伦泄密人妻少妇出轨潜规则美女偷情自拍性感偷拍奶子轮奸空姐内射制服福利姬吃瓜群反差婊足交幼女做爱熟女丝袜啪啪啪老师母子文爱母狗叫床人兽绿帽福利网站黄色网站换妻四爱电报sm https://t.co/NY3Ufk4j3y
+Condition order spring successful surface half economic.
+😝😄💫😋😆, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1524076915002327042, "id": 1619765810020630529, "text": "强奸迷奸乱伦泄密人妻少妇出轨潜规则美女偷情自拍性感偷拍奶子轮奸空姐内射制服福利姬吃瓜群反差婊足交幼女做爱熟女丝袜啪啪啪老师母子文爱母狗叫床人兽绿帽福利网站黄色网站换妻四爱电报sm https://t.co/NY3Ufk4j3y\nCondition order spring successful surface half economic.\n😝😄💫😋😆", "createdAt": 1675017237000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @spring_poet: @senor_illias https://t.co/xs2dpK0fT9, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1505667935318298631, "id": 1619765813187346432, "text": "RT @spring_poet: @senor_illias https://t.co/xs2dpK0fT9", "createdAt": 1675017238000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @yamazakipan_cp: ＼#春のパンまつりカウントダウン キャンペーン🌸／
+
+春のパンまつりまであと3日✨
+えらべるPay1,000円分がその場で当たる❗️
+
+✅応募方法
+①@yamazakipan_cp をフォロー
+②この投稿を1/29 23:59までにRT…, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1222147683671924736, "id": 1619765814919561217, "text": "RT @yamazakipan_cp: ＼#春のパンまつりカウントダウン キャンペーン🌸／\n\n春のパンまつりまであと3日✨\nえらべるPay1,000円分がその場で当たる❗️\n\n✅応募方法\n①@yamazakipan_cp をフォロー\n②この投稿を1/29 23:59までにRT\u2026", "createdAt": 1675017238000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @brunavvaz: “Quantos idiomas vc fala?”
+
+ah eu sou bilíngue, falo português e Java 🫠🤡, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1064625473806843908, "id": 1619765818233077760, "text": "RT @brunavvaz: \u201CQuantos idiomas vc fala?\u201D\n\nah eu sou bilíngue, falo português e Java 🫠🤡", "createdAt": 1675017239000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text So many of you though that Speak Now was next but now that we are Out Of The Woods...
+
+It's actually 1989!!!
+
+With fan favourite New Romantics as the main single coming out January 31st. The main album and vault tracks will be coming out this spring!!!
+#1989taylorsversion https://t.co/E6lrcGBFcA, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1484646936468672516, "id": 1619765816551182336, "text": "So many of you though that Speak Now was next but now that we are Out Of The Woods...\n\nIt's actually 1989!!!\n\nWith fan favourite New Romantics as the main single coming out January 31st. The main album and vault tracks will be coming out this spring!!!\n#1989taylorsversion https://t.co/E6lrcGBFcA", "createdAt": 1675017239000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text spring assolutamente https://t.co/jr9y3VhEyR, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1463951929248292870, "id": 1619765828475588608, "text": "spring assolutamente https://t.co/jr9y3VhEyR", "createdAt": 1675017241000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Spring-likeLion-likeGardenerStanley   
+#定远 #贵阳 #淮北 https://t.co/rDzKQk5dqu, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 945243306023297024, "id": 1619765825195442189, "text": "Spring-likeLion-likeGardenerStanley   \n#定远 #贵阳 #淮北 https://t.co/rDzKQk5dqu", "createdAt": 1675017241000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text The drizzle, on behalf of my missing for you, light faint scent, on behalf of my caring for you, warm spring breeze, on behalf of my blessin, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1589437098637017088, "id": 1619765826298712064, "text": "The drizzle, on behalf of my missing for you, light faint scent, on behalf of my caring for you, warm spring breeze, on behalf of my blessin", "createdAt": 1675017241000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @charts_k: .@BTS_twt now holds the Top 4 longest charting songs by an idol group in Melon Weekly Chart history!
+
+#1 Spring Day - 310 wee…, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1537794296593944576, "id": 1619765825149497345, "text": "RT @charts_k: .@BTS_twt now holds the Top 4 longest charting songs by an idol group in Melon Weekly Chart history!\n\n#1 Spring Day - 310 wee\u2026", "createdAt": 1675017241000} to topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text link: https://t.co/UyZZyCXrae
+price: 2.33 $
+Fashion Men 5 Finger Boat Socks Spring Summer High Quality Colorful Invisible Toes Men's No Show Cot...
+#aliexpress #online #shopping #buy https://t.co/ScZSrRvq8R, sending to kafka topic twitter-topic
+2023-01-30 00:04:09 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 797731048893321216, "id": 1619765834099965952, "text": "link: https://t.co/UyZZyCXrae\nprice: 2.33 $\nFashion Men 5 Finger Boat Socks Spring Summer High Quality Colorful Invisible Toes Men's No Show Cot...\n#aliexpress #online #shopping #buy https://t.co/ScZSrRvq8R", "createdAt": 1675017243000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @lemonmixice: KONINNIT!!! This is Mysta ya boy for my comifuro16 merch UwU yes i spoiler you guys cause i want to post him so bad-
+
+I kn…, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1260931336472154120, "id": 1619765837443002369, "text": "RT @lemonmixice: KONINNIT!!! This is Mysta ya boy for my comifuro16 merch UwU yes i spoiler you guys cause i want to post him so bad-\n\nI kn\u2026", "createdAt": 1675017244000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Perry Bauer Spring Yale Coral Fred #上海 #宁波 https://t.co/iB1pkukVw1, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1315976572717928448, "id": 1619765845198254082, "text": "Perry Bauer Spring Yale Coral Fred #上海 #宁波 https://t.co/iB1pkukVw1", "createdAt": 1675017245000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @JimothyBurg1ary @Java_jigga was hoping this was him in spy kids, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1599963209657622528, "id": 1619765844581703680, "text": "@JimothyBurg1ary @Java_jigga was hoping this was him in spy kids", "createdAt": 1675017245000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text look how fucking dirty my desk is, might be time for some spring cleaning… https://t.co/IYbw0KwRUF, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1297639972745469954, "id": 1619765844330024960, "text": "look how fucking dirty my desk is, might be time for some spring cleaning\u2026 https://t.co/IYbw0KwRUF", "createdAt": 1675017245000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @Spring_03599525: https://t.co/i0UT3ezrAt, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 799851343930269696, "id": 1619765842799120384, "text": "RT @Spring_03599525: https://t.co/i0UT3ezrAt", "createdAt": 1675017245000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @Karlovycross: The return of spring 🕊️ // fairy commission https://t.co/mj3ZYWbX3i, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 782735288, "id": 1619765845105967105, "text": "RT @Karlovycross: The return of spring 🕊️ // fairy commission https://t.co/mj3ZYWbX3i", "createdAt": 1675017245000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text SPRING DAY EXISTS? https://t.co/S2HV86LF5m, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1297874664576827392, "id": 1619765847958126593, "text": "SPRING DAY EXISTS? https://t.co/S2HV86LF5m", "createdAt": 1675017246000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @everhuizerstijn @KAFKA_Dev Idioot !, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1326867945239228416, "id": 1619765852206952448, "text": "@everhuizerstijn @KAFKA_Dev Idioot !", "createdAt": 1675017247000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Spring-likeLion-likeGardenerStanley 
+#跳高高 #抚州 https://t.co/5EsGoTS0By, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 786493786985725952, "id": 1619765850675810310, "text": "Spring-likeLion-likeGardenerStanley \n#跳高高 #抚州 https://t.co/5EsGoTS0By", "createdAt": 1675017247000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @Tonynewyork1 There’s only 2 seasons in a year for me … baseball season and not baseball season lol, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1264287077434351617, "id": 1619765854341586945, "text": "@Tonynewyork1 There\u2019s only 2 seasons in a year for me \u2026 baseball season and not baseball season lol", "createdAt": 1675017248000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @LindaSepp: @brain__frog I've a medical disability with medical needs that've  become associated with an extremely privileged class (ie…, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1592245260108840962, "id": 1619765855960838144, "text": "RT @LindaSepp: @brain__frog I've a medical disability with medical needs that've  become associated with an extremely privileged class (ie\u2026", "createdAt": 1675017248000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @s4r4h_l: #SundayMorning #BlackAndWhiteMacro Lanterns of hope, Spring is tiptoeing near. @BNW_Macro @MacroHour https://t.co/QGt8zoe4X5, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1477057445457547268, "id": 1619765857110081536, "text": "RT @s4r4h_l: #SundayMorning #BlackAndWhiteMacro Lanterns of hope, Spring is tiptoeing near. @BNW_Macro @MacroHour https://t.co/QGt8zoe4X5", "createdAt": 1675017248000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @PantheraDraws: After a long day of fighting evil, sometimes a dragon just needs hot spring time. For @DisruptorRacer https://t.co/Wz92C…, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 2724558740, "id": 1619765857802153985, "text": "RT @PantheraDraws: After a long day of fighting evil, sometimes a dragon just needs hot spring time. For @DisruptorRacer https://t.co/Wz92C\u2026", "createdAt": 1675017248000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @kafka_army: -ری اکشن به عادی ساز نمیدم
+-ری اکشن به هموفوبیک نمیدم
+-ری اکشن به عرزشی نمیدم
+-ایمپرشن به سایبریا نمیدم
+وقتی اینکارا رو می‌…, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1469298866692497414, "id": 1619765856635871233, "text": "RT @kafka_army: -ری اکشن به عادی ساز نمیدم\n-ری اکشن به هموفوبیک نمیدم\n-ری اکشن به عرزشی نمیدم\n-ایمپرشن به سایبریا نمیدم\nوقتی اینکارا رو می\u200C\u2026", "createdAt": 1675017248000} to topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Elasticsearch - Text queries
+
+https://t.co/Lt13OfmVvR, sending to kafka topic twitter-topic
+2023-01-30 00:04:14 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1619666178972041218, "id": 1619765857537884160, "text": "Elasticsearch - Text queries\n\nhttps://t.co/Lt13OfmVvR", "createdAt": 1675017248000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @ClariS_Staff: #リスアニLIVE2023 はいかがでしたか❔
+ワンマンライブにも是非遊びに来てくださいね💓
+
+🌸「#ClariS SPRING LIVE 2023 ~Neo Sparkle~」🎶
+🔔WEB先行二次受付申込期間：～2023/2/5(日)23:…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 2568604872, "id": 1619765858397732864, "text": "RT @ClariS_Staff: #リスアニLIVE2023 はいかがでしたか❔\nワンマンライブにも是非遊びに来てくださいね💓\n\n🌸「#ClariS SPRING LIVE 2023 ~Neo Sparkle~」🎶\n🔔WEB先行二次受付申込期間：～2023/2/5(日)23:\u2026", "createdAt": 1675017249000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @RealMhrBilal6: And remember Our servant Job, when he cried out to his Lord, “Satan has afflicted me with distress and suffering.”
+
+˹We…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1619724735977340931, "id": 1619765859219824640, "text": "RT @RealMhrBilal6: And remember Our servant Job, when he cried out to his Lord, \u201CSatan has afflicted me with distress and suffering.\u201D\n\n˹We\u2026", "createdAt": 1675017249000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @Malibuss72Randy: Under Trudeau Portions of a military information campaign meant to influence the Canadian public during the COVID-19 p…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 2238104048, "id": 1619765859534381056, "text": "RT @Malibuss72Randy: Under Trudeau Portions of a military information campaign meant to influence the Canadian public during the COVID-19 p\u2026", "createdAt": 1675017249000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @KodyDuncanPGH Has to find a consistent third pitch.  If he does, then no doubt he can be part of this rotation in the future., sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 359211533, "id": 1619765863405568000, "text": "@KodyDuncanPGH Has to find a consistent third pitch.  If he does, then no doubt he can be part of this rotation in the future.", "createdAt": 1675017250000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @thepunkpaper: 🚨 Alternative Strategies
+CALL FOR SUBMISSIONS🚨
+
+SPRING PAPER is the plan, and I'm getting it together with an eye on PUNK…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1182224958522560512, "id": 1619765866668916736, "text": "RT @thepunkpaper: 🚨 Alternative Strategies\nCALL FOR SUBMISSIONS🚨\n\nSPRING PAPER is the plan, and I'm getting it together with an eye on PUNK\u2026", "createdAt": 1675017251000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @_bhratz_: If y'all don't voted spring day you are not a real army 😭, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 905741142238666752, "id": 1619765872306036736, "text": "RT @_bhratz_: If y'all don't voted spring day you are not a real army 😭", "createdAt": 1675017252000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @kureus2noyue: God willing, it will be Spring again soon. #photobyme ⁦@kureus2noyue⁩  #iphonetography #flowers #rain #vibrant #Wednesday…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 2895972448, "id": 1619765870712221696, "text": "RT @kureus2noyue: God willing, it will be Spring again soon. #photobyme \u2066@kureus2noyue\u2069  #iphonetography #flowers #rain #vibrant #Wednesday\u2026", "createdAt": 1675017252000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @corkscrew49 @Mr_Boggins That fat bastard let his son garret die in prison from a drug overdose that Andy allowed to happen in his Philly home. Other son Britt is in prison from running kids over while drunk. Throw that piece of shit in the trash and call it a day., sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1617331503091810309, "id": 1619765875430813697, "text": "@corkscrew49 @Mr_Boggins That fat bastard let his son garret die in prison from a drug overdose that Andy allowed to happen in his Philly home. Other son Britt is in prison from running kids over while drunk. Throw that piece of shit in the trash and call it a day.", "createdAt": 1675017253000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @SaltyDGalveston: Mardi Gras, Spring Break, Summer Vacation....
+
+Any time is a good time to go to Galveston!
+
+And when you come, stay at…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 800476092175818753, "id": 1619765879260217345, "text": "RT @SaltyDGalveston: Mardi Gras, Spring Break, Summer Vacation....\n\nAny time is a good time to go to Galveston!\n\nAnd when you come, stay at\u2026", "createdAt": 1675017254000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @AmschelKavka: Sunday is short. Mornings for sleep, afternoons for washing hair, dusk for strolling like an idler. I always use Sunday a…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1180871056623591425, "id": 1619765876827504642, "text": "RT @AmschelKavka: Sunday is short. Mornings for sleep, afternoons for washing hair, dusk for strolling like an idler. I always use Sunday a\u2026", "createdAt": 1675017253000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text RT @Mayassignment: We can handle your
+MICROBIOLOGY
+Pharmacology
+Immunology
+Parasitology
+Pathophysiology
+Genetics
+Anatomy
+Biology 
+#MachineL…, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1246118622306631682, "id": 1619765880644313088, "text": "RT @Mayassignment: We can handle your\nMICROBIOLOGY\nPharmacology\nImmunology\nParasitology\nPathophysiology\nGenetics\nAnatomy\nBiology \n#MachineL\u2026", "createdAt": 1675017254000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @dan_jeezy agree, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 35304791, "id": 1619765882389147649, "text": "@dan_jeezy agree", "createdAt": 1675017254000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text It's crazy seeing daffodils bloom already! It's not even spring under the Irish definition yet, let alone the meteorological or Roman ones! https://t.co/IPRba07CxA, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1390473154687086592, "id": 1619765878081589250, "text": "It's crazy seeing daffodils bloom already! It's not even spring under the Irish definition yet, let alone the meteorological or Roman ones! https://t.co/IPRba07CxA", "createdAt": 1675017253000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @Robby_NFL Hey #BroncosCountry Watch Bengals OC & ex Bronco, Brian Callahan. His pedigree teaching QB’s says he can “fix” Russell Wilson if anybody can. Or at least get him to produce to the ‘C’ grade level that he is.
+Read➔https://t.co/asYjf59yCD https://t.co/9JpvO4RLKI, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 157099071, "id": 1619765885144801280, "text": "@Robby_NFL Hey #BroncosCountry Watch Bengals OC & ex Bronco, Brian Callahan. His pedigree teaching QB\u2019s says he can \u201Cfix\u201D Russell Wilson if anybody can. Or at least get him to produce to the \u2018C\u2019 grade level that he is.\nRead➔https://t.co/asYjf59yCD https://t.co/9JpvO4RLKI", "createdAt": 1675017255000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text @Fendi That’s fantastic., sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 4202447833, "id": 1619765887073910784, "text": "@Fendi That\u2019s fantastic.", "createdAt": 1675017255000} to topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text ว้ายยย ด่วนๆๆๆ let's make this summer a great summer https://t.co/jh8h2tgEPQ, sending to kafka topic twitter-topic
+2023-01-30 00:04:22 [main] INFO  c.t.s.k.p.c.s.i.TwitterKafkaProducer - Sending message {"userId": 1083104796, "id": 1619765886101118976, "text": "ว้ายยย ด่วนๆๆๆ let's make this summer a great summer https://t.co/jh8h2tgEPQ", "createdAt": 1675017255000} to topic twitter-topic
+2023-01-30 00:04:23 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2023-01-30 00:04:23 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2023-01-30 00:04:23 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2023-01-30 00:04:23 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2023-01-30 00:04:23 [SpringApplicationShutdownHook] INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2023-01-30 00:04:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2023-01-30 00:04:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2023-01-30 00:04:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2023-01-30 00:04:23 [SpringApplicationShutdownHook] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2023-01-30 00:33:56 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 69601 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
+2023-01-30 00:33:56 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-01-30 00:33:56 [main] WARN  o.s.c.a.AnnotationTypeMapping - Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.1. Please annotate the following attributes in @org.springframework.retry.annotation.EnableRetry with appropriate @AliasFor declarations: [proxyTargetClass]
+2023-01-30 00:33:57 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	bootstrap.servers = [localhost:19092, localhost:29092, localhost:39092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2023-01-30 00:33:57 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.3.1
+2023-01-30 00:33:57 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: e23c59d00e687ff5
+2023-01-30 00:33:57 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1675019037580
+2023-01-30 00:33:58 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080
+2023-01-30 00:33:58 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Started TwitterToKafkaServiceApplication in 2.119 seconds (process running for 2.616)
+2023-01-30 00:33:58 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - App starts...
+2023-01-30 00:33:58 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Creating 1 topic(s), attempt 0
+2023-01-30 00:33:58 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Creating kafka topic [twitter-topic], attempt 0
+2023-01-30 00:33:58 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Topic with name twitter-topic is read
+2023-01-30 00:33:58 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Topic with name _schemas is read
+2023-01-30 00:33:58 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Topic with name __confluent.support.metrics is read
+2023-01-30 00:33:58 [main] INFO  c.t.s.c.t.t.k.s.i.i.KafkaStreamInitializer - Topics with name twitter-topic is ready for operations!
+2023-01-30 00:33:58 [main] INFO  c.t.s.c.t.t.k.s.r.i.TwitterV2KafkaStreamRunner - Created filter for twitter stream for keywords : [Java, Microservices, Spring, Kafka, Elasticsearch]
+2023-01-30 00:33:58 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2023-01-30 00:33:58 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2023-01-30 00:33:58 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2023-01-30 00:33:58 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2023-01-30 00:34:00 [main] INFO  c.t.s.c.t.t.k.s.r.i.TwitterV2StreamHelper - Created rules for twitter stream Java
+2023-01-30 00:42:48 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 76630 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
+2023-01-30 00:42:48 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-01-30 00:42:48 [main] WARN  o.s.c.a.AnnotationTypeMapping - Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.1. Please annotate the following attributes in @org.springframework.retry.annotation.EnableRetry with appropriate @AliasFor declarations: [proxyTargetClass]
+2023-01-30 00:42:49 [main] INFO  o.a.k.c.admin.AdminClientConfig - AdminClientConfig values: 
+	bootstrap.servers = [localhost:19092, localhost:29092, localhost:39092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2023-01-30 00:42:49 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.3.1
+2023-01-30 00:42:49 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: e23c59d00e687ff5
+2023-01-30 00:42:49 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1675019569861
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -2 disconnected.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -2 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:19092) could not be established. Broker may not be available.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -3 disconnected.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -3 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -2 disconnected.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -2 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:19092) could not be established. Broker may not be available.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -3 disconnected.
+2023-01-30 00:42:49 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -3 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -2 disconnected.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -2 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:19092) could not be established. Broker may not be available.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -3 disconnected.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -3 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -2 disconnected.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -2 (localhost/127.0.0.1:29092) could not be established. Broker may not be available.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -1 disconnected.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:19092) could not be established. Broker may not be available.
+2023-01-30 00:42:50 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080
+2023-01-30 00:42:50 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Started TwitterToKafkaServiceApplication in 2.022 seconds (process running for 2.556)
+2023-01-30 00:42:50 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - App starts...
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Node -3 disconnected.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] WARN  o.apache.kafka.clients.NetworkClient - [AdminClient clientId=adminclient-1] Connection to node -3 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2023-01-30 00:42:50 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Creating 1 topic(s), attempt 0
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.a.k.c.a.i.AdminMetadataManager - [AdminClient clientId=adminclient-1] Metadata update failed
+org.apache.kafka.common.errors.TimeoutException: The AdminClient thread has exited. Call: fetchMetadata
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.a.k.clients.admin.KafkaAdminClient - [AdminClient clientId=adminclient-1] Timed out 1 remaining operation(s) during close.
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2023-01-30 00:42:50 [kafka-admin-client-thread | adminclient-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2023-01-30 00:42:50 [main] INFO  c.t.s.k.a.client.KafkaAdminClient - Creating kafka topic [twitter-topic], attempt 0

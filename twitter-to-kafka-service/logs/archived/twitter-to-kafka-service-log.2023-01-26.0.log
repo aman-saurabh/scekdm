@@ -1,0 +1,12 @@
+2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Starting TwitterToKafkaServiceApplication using Java 17.0.5 with PID 7627 (/home/aman/Realtime-Projects/scekdm/twitter-to-kafka-service/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
+2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - Started TwitterToKafkaServiceApplication in 0.792 seconds (process running for 1.279)
+2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - App starts...
+2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.TwitterToKafkaServiceApplication - [Java, Microservices, Spring, Kafka, Elasticsearch]
+2023-01-26 20:02:03 [main] INFO  c.t.s.c.t.t.k.s.r.i.MockKafkaStreamRunner - Starting mock filtering twitter streams for keywords [Java, Microservices, Spring, Kafka, Elasticsearch]
+2023-01-26 20:02:03 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text sed egestas adipiscing dollar convallis vel egestas Elasticsearch juilik elit sed vitae sed
+2023-01-26 20:02:13 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text enim ipsum vitae juilik vitae elit adipiscing Microservices feugiat juilik ipsum vitae Lorem setual
+2023-01-26 20:02:23 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text sed setual sed sem Spring dollar Lorem
+2023-01-26 20:02:33 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text enim neque vitae Elasticsearch feugiat Vestibulum
+2023-01-26 20:02:43 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text consectetur sed Lorem condimentum consectetur vel feugiat sed Java enim consectetur enim vitae condimentum elit
+2023-01-26 20:02:53 [pool-1-thread-1] INFO  c.t.s.c.t.t.k.s.l.TwitterKafkaStatusListener - Twitter status with text Vestibulum egestas ipsum Vivamus adipiscing libero Elasticsearch setual Vestibulum vel feugiat sem

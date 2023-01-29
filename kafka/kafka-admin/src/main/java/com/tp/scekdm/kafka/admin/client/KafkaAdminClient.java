@@ -58,7 +58,7 @@ public class KafkaAdminClient {
     /*
         To create topics
      */
-    private void createTopics() {
+    public void createTopics() {
         CreateTopicsResult createTopicsResult;
         try {
             createTopicsResult = retryTemplate.execute(this::doCreateTopics);
@@ -109,9 +109,9 @@ public class KafkaAdminClient {
         int multiplier = retryConfigData.getMultiplier().intValue();
         Long sleepTimeMs = retryConfigData.getSleepTimeMs();
         for (String topic : kafkaConfigData.getTopicNamesToCreate()) {
-            // Because the create topics is an asynchronous operation. That's why we added a custom retry logic on top
-            // of the retry template here and we try to check until a maximum retry time and then exponentially increase
-            // the sleep time until we get the topics using the getTopics() method.
+            // Because the kafka create topics is an asynchronous operation. That's why we added a custom retry logic on
+            // top of the retry template here and we try to check until a maximum retry time and then exponentially
+            // increase the sleep time until we get the topics using the getTopics() method.
             while (!isTopicCreated(topics, topic)) {
                 checkMaxRetry(retryCount++, maxRetry);
                 sleep(sleepTimeMs);

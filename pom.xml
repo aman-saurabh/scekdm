@@ -38,7 +38,15 @@
         <spring-kafka.version>3.0.1</spring-kafka.version>
         <spring-retry.version>2.0.0</spring-retry.version>
         <spring-boot-starter-webflux.version>3.0.2</spring-boot-starter-webflux.version>
+        <kafka-avro-serializer.version>7.3.1</kafka-avro-serializer.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+
     <!-- We have created "dependencyManagement" section and shifted the "dependencies" section inside this
     "dependencyManagement" section because it will help us to define all dependencies in this base pom.xml file
     without really downloading them. In the submodules that wants to include the dependency, we will simply
@@ -54,6 +62,21 @@
             <dependency>
                 <groupId>com.tp</groupId>
                 <artifactId>common-config</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tp</groupId>
+                <artifactId>kafka-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tp</groupId>
+                <artifactId>kafka-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tp</groupId>
+                <artifactId>kafka-producer</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -118,7 +141,36 @@
                 <artifactId>spring-boot-starter-webflux</artifactId>
                 <version>${spring-boot-starter-webflux.version}</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer -->
+            <dependency>
+                <!-- This repository is located at confluent repository, not in Maven Central Repository. So we need to
+                create a new repository in the repositories section of main pom.xml file. And then mentioned the
+                confluent url to be able to download this dependency from Confluent repository. We can also set this
+                repository in the Maven setting xml file But we will leave it here for now. -->
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-avro-serializer</artifactId>
+                <version>${kafka-avro-serializer.version}</version>
+                <!-- We need to add some exclusions to Kafka avro serializer dependency for slF4j, lof4j and swagger
+                because we don't want to use these dependencies from Kafka Avro Serializer library. -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
