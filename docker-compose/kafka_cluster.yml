@@ -125,3 +125,8 @@ services:
 #And we can stop all containers using following command :
 # docker-compose -f common.yml -f kafka_cluster.yml down
 #To delete the network, containers, and volumes when you stop the cluster, specify the -v option
+
+#Command to check if kafka cluster is running
+# kafkacat -L -b localhost:19092
+#It will return all brokers(with their hostname or IP address and port number) and topics details
+
