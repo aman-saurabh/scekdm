@@ -113,6 +113,15 @@ services:
 #We can run this kafka cluster using following command from the same directory where "common.yml" file and "kafka_cluster.yml" files are lying :
 # docker-compose -f common.yml -f kafka_cluster.yml up
 #You can add "-d" option in it to leave containers in running state.
+###############################################################################################################
+# Simple way to run docker-compose :-
+# Define all the Yaml files in ".env" file using "COMPOSE_PATH_SEPARATOR" and "COMPOSE_FILE" variables as
+# COMPOSE_PATH_SEPARATOR=:
+# COMPOSE_FILE=common.yml:kafka_cluster.yml:services.yml
+# and simply run docker compose as follows without mentioning fie names.
+# docker-compose up -d
+# Here -d is optional used for 'detached' meaning run containers in the background.
+###############################################################################################################
 
 
 #And we can check if all containers are running using following commands.
@@ -133,6 +142,7 @@ services:
 #Command to consume a kafka topic
 # kafkacat -C -b localhost:19092 -t twitter-topic
 
-
+# mvn clean install command with skip tests
 # mvn install -DskipTests
+
 
