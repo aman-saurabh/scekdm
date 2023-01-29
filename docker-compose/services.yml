@@ -15,3 +15,16 @@ services:
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
     networks:
       - ${GLOBAL_NETWORK:-services}
+# Here we see that we can simply override any configuration variable inside "environment" section, for example, for the
+# "bootstrap servers" inside "kafka-config" section of Kafka-cluster.yml file we had used 'localhost:19092,
+# localhost:29092, localhost:39092' but here we are over-riding that with 'kafka-broker-1:9092, kafka-broker-2:9092,
+# kafka-broker-3:9092' since 'localhost:19092' represents nothing but a docker container whose hostname is kafka-broker-1
+# defined in Kafka-cluster.yml file, and we did similar changes for localhost:29092, localhost:39092 also. we changed the
+# name because we will run everything inside docker and to be able to reach to Kafka from our service, we should use
+# hostname, because inside docker, all these containers will act as different hosts.
+
+
+# Also note that the key in "environment" variable must be same as in configuration variable. For example - In the
+# "kafka-config" section of 'application.yml' file of 'twitter-to-kafka-service' there is a field 'schema-registry-url',
+# for that field we have used "KAFKA-CONFIG_SCHEMA-REGISTRY-URL" variable here in the 'environment' section of this file
+# which is nothing but combination of the 'section name' and 'field name' in 'application.yml' file.
