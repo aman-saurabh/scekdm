@@ -22,6 +22,7 @@
         <module>kafka/kafka-admin</module>
         <module>kafka/kafka-producer</module>
         <module>common-config</module>
+        <module>config-server</module>
     </modules>
     <!-- We are using this POM file as base configuration only and not for creating runnable jars. So we have
     defined "packaging" as "pom" here. -->
@@ -39,6 +40,8 @@
         <spring-retry.version>2.0.0</spring-retry.version>
         <spring-boot-starter-webflux.version>3.0.2</spring-boot-starter-webflux.version>
         <kafka-avro-serializer.version>7.3.1</kafka-avro-serializer.version>
+        <spring-cloud.version>4.0.1</spring-cloud.version>
+        <spring-cloud-dependencies.version>2022.0.1</spring-cloud-dependencies.version>
     </properties>
     <repositories>
         <repository>
@@ -170,6 +173,25 @@
                         <artifactId>swagger-core</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-server -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

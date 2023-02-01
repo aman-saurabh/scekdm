@@ -1,0 +1,55 @@
+2023-02-01 20:29:56 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2023-02-01 20:29:56 [main] INFO  c.t.s.config.server.ConfigServer - Starting ConfigServer using Java 17.0.5 with PID 35391 (/home/aman/Realtime-Projects/scekdm/config-server/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
+2023-02-01 20:29:56 [main] INFO  c.t.s.config.server.ConfigServer - No active profile set, falling back to 1 default profile: "default"
+2023-02-01 20:29:56 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=5b29018c-b208-399b-839b-2d47b735f00e
+2023-02-01 20:29:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2023-02-01 20:29:57 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2023-02-01 20:29:57 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-02-01 20:29:57 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-02-01 20:29:57 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-02-01 20:29:57 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1012 ms
+2023-02-01 20:29:57 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'defaultEnvironmentRepository' defined in class path resource [org/springframework/cloud/config/server/config/DefaultRepositoryConfiguration.class]: You need to configure a uri for the git repository.
+2023-02-01 20:29:57 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-02-01 20:29:57 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-02-01 20:29:57 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Invalid config server configuration.
+
+Action:
+
+If you are using the git profile, you need to set a Git URI in your configuration.  If you have set spring.cloud.config.server.bootstrap=true, you need to use a composite configuration.
+
+2023-02-01 20:37:41 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2023-02-01 20:37:41 [main] INFO  c.t.s.config.server.ConfigServer - Starting ConfigServer using Java 17.0.5 with PID 35938 (/home/aman/Realtime-Projects/scekdm/config-server/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
+2023-02-01 20:37:41 [main] INFO  c.t.s.config.server.ConfigServer - The following 1 profile is active: "development"
+2023-02-01 20:37:42 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=5b29018c-b208-399b-839b-2d47b735f00e
+2023-02-01 20:37:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2023-02-01 20:37:42 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2023-02-01 20:37:42 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-02-01 20:37:42 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-02-01 20:37:42 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-02-01 20:37:42 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1031 ms
+2023-02-01 20:37:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2023-02-01 20:37:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2023-02-01 20:37:43 [main] INFO  c.t.s.config.server.ConfigServer - Started ConfigServer in 2.316 seconds (process running for 2.753)
+2023-02-01 20:40:44 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2023-02-01 20:40:44 [main] INFO  c.t.s.config.server.ConfigServer - Starting ConfigServer using Java 17.0.5 with PID 36483 (/home/aman/Realtime-Projects/scekdm/config-server/target/classes started by aman in /home/aman/Realtime-Projects/scekdm)
+2023-02-01 20:40:44 [main] INFO  c.t.s.config.server.ConfigServer - The following 1 profile is active: "development"
+2023-02-01 20:40:45 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=5b29018c-b208-399b-839b-2d47b735f00e
+2023-02-01 20:40:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2023-02-01 20:40:45 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2023-02-01 20:40:45 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-02-01 20:40:45 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-02-01 20:40:45 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-02-01 20:40:45 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1016 ms
+2023-02-01 20:40:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2023-02-01 20:40:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2023-02-01 20:40:46 [main] INFO  c.t.s.config.server.ConfigServer - Started ConfigServer in 2.292 seconds (process running for 2.812)

@@ -1,55 +1,6 @@
 <configuration>
     <property name="DEV_HOME" value="./twitter-to-kafka-service/logs"/>
     <property name="APP_NAME" value="twitter-to-kafka-service"/>
-    <!-- We have created 2 appenders here. Details are given below  -->
-    <!-- Appender1 - It is for print log message on console -->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern> %d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n </Pattern>
-        </layout>
-    </appender>
-    <!-- Appender2 - It is for print log message in log files -->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${DEV_HOME}/${APP_NAME}.log</file>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern> %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n </Pattern>
-        </encoder>
-        <!-- Rolling policy - To compress and save the current log file and create a new log file in case the log file
-        reaches a certain size (10 MB in this case) -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- rollover daily  -->
-            <fileNamePattern>${DEV_HOME}/archived/${APP_NAME}-log.%d{yyyy-MM-dd}.%i.log </fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
-    </appender>
-    <!-- Following code says that - Our all application classes that starts with "com.tp.scekdm" will be logged by
-    using two appenders - "FILE" and "STDOUT" appenders .
-    Note that we have defined "FILE" and "STDOUT" appenders above (Verify with the 'name' of the appenders we
-    have created above).   -->
-    <logger name="com.tp.scekdm" level="info" additivity="false">
-        <appender-ref ref="FILE"/>
-        <appender-ref ref="STDOUT"/>
-    </logger>
-    <!-- And here, the root logger will set the log level as a root, which can be overwritten using a specific logger,
-    as we did above.
-    One more thing about logger is that we can actually define different log levels like trace, debug, info, warn
-    and error for our logger definition(using the 'level' attribute in above 'logger' or 'root' elements). The hierarchy
-    of log levels are as follows :
 
-    trace < debug < info < warn < error
-
-    And it works as - if you define a lower log level, it will also print the log messages of that level as well as
-    its higher log levels. That means - 'trace' level will print all the log messages as it is the lowest log level.
-    However, if you set the level as error, all the log messages accept error will be ignored. So this way we can
-    control in the configuration how much log messages will be printed, for example, in production.
-    You won't want to include that much logging, as it can affect the performance of your application and cost you
-    higher to run such applications. -->
-    <root level="info">
-        <appender-ref ref="FILE"/>
-        <appender-ref ref="STDOUT"/>
-    </root>
-<!-- We can now use the logger with above configuration in this spring application anywhere without any further
-configuration.-->
+    <include resource="logback-common.xml"/>
 </configuration>
