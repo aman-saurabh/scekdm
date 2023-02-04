@@ -23,6 +23,7 @@
         <module>kafka/kafka-producer</module>
         <module>common-config</module>
         <module>config-server</module>
+        <module>kafka/kafka-consumer</module>
     </modules>
     <!-- We are using this POM file as base configuration only and not for creating runnable jars. So we have
     defined "packaging" as "pom" here. -->
