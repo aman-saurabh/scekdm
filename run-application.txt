@@ -1,26 +1,27 @@
 Step 1:-
+========
 Start the config-server using commands :
   cd config-server
   mvn clean install
   mvn spring-boot:run
 
 Step 2:-
+========
 Start kafka cluster(don't include services.yml here):
   cd docker-compose
   docker-compose -f common.yml -f kafka_cluster.yml up -d
-Note :-
+Notes :-
 1.)
 After running above command check whether all 5 kafka related containers(1 zookeeper container, 1 schema-registry
 container and 3 kafka containers) are running properly or not using following commands :
   docker ps
-  Or,
+Or,
   docker ps -a
 If due to any reason the above containers are not running then delete all containers using following command and
   docker-compose down -v
 Now again start all kafka containers using following command :
   docker-compose -f common.yml -f kafka_cluster.yml up -d
 It should work fine now.
-
 2.)
 We should run common.yml, kafka_cluster.yml and services.yml together but services.yml is creating problem
 for some reason and I can't identify the issue yet. So not running the "twitter-to-kafka-service" using docker-compose
@@ -30,16 +31,20 @@ the updated docker image for our service in our local machine as we have updated
 in pom.xml file of "twitter-to-kafka-service" service under "build" section.
   maven clean install
 After running above command we can run following command to run "twitter-to-kafka-service" using docker-compose.
-  docker-compose -f services.yml up -d
-and after that check "twitter-to-kafka-service" container is running or not using "docker ps" command.
+  docker-compose  -f common.yml -f services.yml up -d
+and after that check "twitter-to-kafka-service" container is running or not using "docker ps" command. Note that here
+also adding "-f common.yml" is important otherwise you will get unknown network "application" error. As configuration
+to attach "application" network with any container is written in "common.yml" file.
 
 Step 3 :-
+========
 (Note :- Run if you haven't run "twitter-to-kafka-service" container docker-compose using "services.yml" file otherwise skip.)
   cd twitter-to-kafka-service
   mvn clean install
   mvn spring-boot:run
 
 Step 4:-
+========
 Check whether kafka is getting messages from "twitter-to-kafka-service" or not :
 Command 1:-
 To check all brokers and topics of kafka cluster particularly if "twitter-topic" is created or not.
@@ -47,6 +52,3 @@ To check all brokers and topics of kafka cluster particularly if "twitter-topic"
 Command 2:-
 To check if kafka cluster is consuming messages from "twitter-to-kafka-service" continuously on some intervals or not.
   kafkacat -C -b localhost:19092 -t twitter-topic
-
-
-
