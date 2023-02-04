@@ -17,7 +17,11 @@ docker ps -a
 
 To monitor any container :-
 docker logs -f <container_id>
-# "twitter-to-kafka-service" will take some time in starting, so monitor it if it is ready or not.
+Note :- "twitter-to-kafka-service" will take some time in starting, so monitor it if it is ready or not.
+
+Command to kill process running on a port:
+kill -9 $(lsof -t -i:8080)
+Replace 8080 with your desired PORT number.
 
 You also refer to Step 4 of Method 2 to monitor kafka cluster.
 =====================================================================================================================
@@ -69,3 +73,4 @@ To check all brokers and topics of kafka cluster particularly if "twitter-topic"
 Command 2:-
 To check if kafka cluster is consuming messages from "twitter-to-kafka-service" continuously on some intervals or not.
   kafkacat -C -b localhost:19092 -t twitter-topic
+
