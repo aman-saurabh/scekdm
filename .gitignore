@@ -31,4 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
-**/logs/
+**/logs/**
+*/logs
+/config-server-repository

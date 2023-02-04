@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: kafka-to-elastic-service
+  profiles:
+    active: kafka_to_elastic
+  # Uncomment it if you are not running "twitter-to-kafka-service" using docker-compose. With docker-compose it over-rides
+  # the value set in docker-compose file "environment section" and hence created issue.
+  config:
+    import: configserver:http://localhost:8888
+  cloud:
+    config:
+      name: kafka-to-elastic-service,config-client
