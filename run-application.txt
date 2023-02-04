@@ -1,3 +1,27 @@
+Method 1(Easy Method):-
+cd config-server
+mvn clean install
+
+cd twitter-to-kafka-service
+mvn clean install -DskipTests
+
+cd docker-compose
+docker-compose up -d
+
+If due to any reason the above containers are not running then delete all containers using following command and
+  docker-compose down -v
+Now again start all kafka containers using following command :
+
+To check all containers are running :
+docker ps -a
+
+To monitor any container :-
+docker logs -f <container_id>
+# "twitter-to-kafka-service" will take some time in starting, so monitor it if it is ready or not.
+
+You also refer to Step 4 of Method 2 to monitor kafka cluster.
+=====================================================================================================================
+Method 2(Detailed -> without using - "services.yml" in docker-compose) :-
 Step 1:-
 ========
 Start the config-server using commands :
@@ -10,6 +34,7 @@ Step 2:-
 Start kafka cluster(don't include services.yml here):
   cd docker-compose
   docker-compose -f common.yml -f kafka_cluster.yml up -d
+
 Notes :-
 1.)
 After running above command check whether all 5 kafka related containers(1 zookeeper container, 1 schema-registry
@@ -23,18 +48,10 @@ Now again start all kafka containers using following command :
   docker-compose -f common.yml -f kafka_cluster.yml up -d
 It should work fine now.
 2.)
-We should run common.yml, kafka_cluster.yml and services.yml together but services.yml is creating problem
-for some reason and I can't identify the issue yet. So not running the "twitter-to-kafka-service" using docker-compose
-"services.yml" file and running the service directly using maven as discussed in Step 3. In the future if services.yml
-starts working properly then you can skip step 3. But note that you will still need to run following command to build
-the updated docker image for our service in our local machine as we have updated maven goals to build docker image also
-in pom.xml file of "twitter-to-kafka-service" service under "build" section.
-  maven clean install
-After running above command we can run following command to run "twitter-to-kafka-service" using docker-compose.
+  Note that we need to run "common.yml" file with every other yaml files as it defines the network for the container.
+  If you don't add it then you may get "unknown network" error. For example :- let's suppose you want to run
+  "service.yml" file using docker-compose, then you can do it as follows :
   docker-compose  -f common.yml -f services.yml up -d
-and after that check "twitter-to-kafka-service" container is running or not using "docker ps" command. Note that here
-also adding "-f common.yml" is important otherwise you will get unknown network "application" error. As configuration
-to attach "application" network with any container is written in "common.yml" file.
 
 Step 3 :-
 ========

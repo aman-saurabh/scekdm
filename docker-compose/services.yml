@@ -6,6 +6,12 @@ services:
       - "5005:5005"
     volumes:
       - "./docker-logs:/twitter-to-kafka-service/logs/"
+      - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
+    # To be able to run updates and also install the Curl command in the "check-config-server-started.sh" shell script
+    # we will run compose file with the user root.
+    user: root
+    # Updating entrypoint for this service container and setting "check-config-server-started.sh" as entrypoint.
+    entrypoint: ["check-config-server-started.sh"]
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
       - "LOGGING_LEVEL_COM_TP_SCEKDM=info"
@@ -13,6 +19,11 @@ services:
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
+      - "TWITTER-TO-KAFKA-SERVICE_ENABLE-V2-TWEETS=false"
+      - "TWITTER-TO-KAFKA-SERVICE_ENABLE-MOCK-TWEETS=true"
+      # Set the value for "Twitter-bearer-token" below if you want to use ENABLE-V2-TWEETS inplace of ENABLE-MOCK-TWEETS
+      #- "TWITTER-TO-KAFKA-SERVICE_TWITTER-V2-BEARER-TOKEN=<Twitter-bearer-token>"
+      - "SPRING_CONFIG_IMPORT=configserver:http://config-server:8888"
     networks:
       - ${GLOBAL_NETWORK:-services}
 # Here we see that we can simply override any configuration variable inside "environment" section, for example, for the
@@ -23,8 +34,18 @@ services:
 # name because we will run everything inside docker and to be able to reach to Kafka from our service, we should use
 # hostname, because inside docker, all these containers will act as different hosts.
 
-
 # Also note that the key in "environment" variable must be same as in configuration variable. For example - In the
 # "kafka-config" section of 'application.yml' file of 'twitter-to-kafka-service' there is a field 'schema-registry-url',
 # for that field we have used "KAFKA-CONFIG_SCHEMA-REGISTRY-URL" variable here in the 'environment' section of this file
 # which is nothing but combination of the 'section name' and 'field name' in 'application.yml' file.
+  config-server:
+    image: ${GROUP_ID}/config.server:${SERVICE_VERSION:-latest}
+    ports:
+      - "5006:5006"
+      - "8888:8888"
+    volumes:
+      - "./docker-logs:/config-server/logs"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
+    networks:
+      - ${GLOBAL_NETWORK:-services}

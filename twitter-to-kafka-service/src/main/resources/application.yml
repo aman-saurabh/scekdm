@@ -3,8 +3,10 @@ spring:
     name: twitter-to-kafka-service
   profiles:
     active: twitter_to_kafka
-  config:
-    import: configserver:http://localhost:8888
+  # Uncomment it if you are not running "twitter-to-kafka-service" using docker-compose. With docker-compose it over-rides
+  # the value set in docker-compose file "environment section" and hence created issue.
+  #config:
+  #  import: configserver:http://localhost:8888
   cloud:
     config:
       name: twitter-to-kafka-service,config-client
