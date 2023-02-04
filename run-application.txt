@@ -1,3 +1,16 @@
+***********************************************************************************************************************
+Note :- Even though we have not mentioned in the following methods that we need to create "jar" for each microservices
+used in the application but we will need them. For example for "Kafka-consumer", "kafka-admin" etc. microservices, we
+haven't mentioned that we need "jars" for these microservices in the following methods. So if you make changes in these
+microservices then run "mvn clean install" command to create runnable jars for them. If you pull the code on any other
+machine and want to run application on that then create runnable jars for each and every microservices. For example we
+can create runnable jar for "kafka-consumer" as follows :
+--------------------------------
+cd kafka-consumer/
+mvn clean install
+--------------------------------
+***********************************************************************************************************************
+
 Method 1(Easy Method):-
 cd config-server
 mvn clean install
@@ -14,6 +27,10 @@ Now again start all kafka containers using following command :
 
 To check all containers are running :
 docker ps -a
+
+cd kafka-to-elastic-service/
+mvn clean install
+mvn spring-boot:run
 
 To monitor any container :-
 docker logs -f <container_id>
